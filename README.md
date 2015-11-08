@@ -1,5 +1,8 @@
 # css-flow-step
-纯CSS写的流程箭头，兼容IE6+
+纯CSS写的流程箭头，可自定义宽高尺寸，兼容IE6+
+
+<img width="622" alt="er4546" src="https://cloud.githubusercontent.com/assets/1295348/11021407/6f599194-867b-11e5-8b1a-8d5731c06b6b.png">
+
 
 ## 默认型
 

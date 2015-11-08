@@ -1,0 +1,103 @@
+@charset "utf-8";
+/**
+ * @name: CSS流程步骤
+ * @update: 2014-11-09
+ * @author: David
+ */
+
+$default-bg: #c8c8c8; // 默认背景色
+$current-bg: #f60; // 当前步骤背景色
+$done-bg: #ffc4aa; // 已经过的步骤背景色
+$arrow-bg: #fff; // 箭头颜色
+$default-text: #fff; // 默认文字颜色
+$current-text: #fff; // 当前步骤文字颜色
+$item-width: 164px; // 步骤宽度
+$item-height: 38px; // 步骤高度
+$arrow-width: 3px; // 箭头宽度
+
+.flowStep{
+    position: relative;
+    overflow: hidden;
+}
+.flowStep__item {
+    float: left;
+    height: $item-height;
+    line-height: $item-height;
+    margin-right: -$item-height;
+    *margin-right: -($item-height - 1px);
+    _margin-right: -$item-height;
+    background-color: $default-bg;
+    overflow: hidden;
+}
+.flowStep__item--current {
+    background: $current-bg;
+    .flowStep__before {
+        border-color: $current-bg;
+        border-left-color: $arrow-bg;
+    }
+    .flowStep__txt {
+        color: $current-text;
+        font-weight: bold;
+    }
+    .flowStep__after {
+        border-left-color: $current-bg;
+    }
+    .flowStep__before--first {
+        border-color: $current-bg;
+    }
+    .flowStep__after--last {
+        border-left-color: $current-bg;
+    }
+}
+.flowStep__item--done {
+    background: $done-bg;
+    .flowStep__before {
+        border-color: $done-bg;
+        border-left-color: $arrow-bg;
+    }
+    .flowStep__after {
+        border-left-color: $done-bg;
+    }
+    .flowStep__before--first {
+        border-color: $done-bg;
+    }
+}
+.flowStep__txt {
+    float: left;
+    width: $item-width - ($item-height/2 + $arrow-width) * 2;
+    padding-right: $item-height/2 + $arrow-width;
+    color: $default-text;
+    text-align: center;
+    text-decoration: none;
+}
+.flowStep__before,
+.flowStep__after {
+    float: left;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.flowStep__before {
+    margin-top: -$arrow-width;
+    border: $item-height/2 + $arrow-width solid $default-bg;
+    border-left-color: $arrow-bg;
+    z-index: 2;
+}
+.flowStep__before--first {
+    border-color: $default-bg;
+}
+.flowStep__after {
+    position: relative;
+    z-index: 3;
+    border: $item-height/2 solid transparent;
+    _border-color: snow;
+    _filter: chroma(color=snow);
+    border-left-color: $default-bg;
+}
+.flowStep__after--last {
+    border-color: $arrow-bg;
+    border-left-color: $default-bg;
+}
+
+ 
